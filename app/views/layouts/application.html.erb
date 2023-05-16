@@ -6,6 +6,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <style>
+      <%= ".msg-#{current_user&.id}" %> {
+        justify-content: flex-end !important;
+      }
+
+      <%= ".msg-#{current_user&.id}" %> .msg-ballom{
+        background-color: #007bff !important;
+        border-radius: 0.75rem 0.75rem 0rem 0.75rem !important;
+      }
+
+      <%= ".msg-#{current_user&.id}" %> .name-user{
+        display: none !important;
+      }
+    </style>
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -13,7 +28,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="text-gray-400 bg-gray-900 body-font">
     <%= yield %>
   </body>
 </html>

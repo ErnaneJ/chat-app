@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    user = User.find_by(username: params[:session][:username])
+    user = User.find_or_create_by_username(username: params[:session][:username].downcase)
     if user
       log_in(user)
     else

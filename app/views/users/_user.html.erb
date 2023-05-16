@@ -1,1 +1,12 @@
-<div> <%= link_to user.username, user %> </div>
+<a href="/users/<%= user.id %>"
+  class="flex flex-row gap-4  py-4 px-2 justify-center items-center border-b-2 border-gray-100/10"
+>
+  <img
+    src="https://source.unsplash.com/_7LbC5J-jw4/600x600"
+    class="object-cover h-12 w-12 rounded-full"
+    alt=""
+  />
+  <div class="w-full">
+    <div class="text-lg font-semibold"><%= user.username.capitalize %></div>
+  </div>
+</a>

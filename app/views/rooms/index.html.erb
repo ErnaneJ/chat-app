@@ -1,32 +1,43 @@
-<div class="row">
-  <div class="col-md-2">
-    <h5> Hi <%= @current_user.username %> </h5>
-    <%= link_to 'Sign Out', signout_path, data: { "turbo-method": :delete }  %>
-    
-    <h4> Users </h4>
-    <div>
+<section class="min-h-screen max-h-screen overflow-hidden flex flex-col items-center justify-between min-w-screen">
+  <header class="text-gray-400 bg-gray-900 body-font w-full border-gray-100/10 border-b-2">
+    <div class="flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
+      <a href="/" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <span class="ml-3 text-xl">Hi, <%= @current_user.username.capitalize %>! 🎉</span>
+      </a>
+
+      <%= link_to 'Sign Out', signout_path, data: { "turbo-method": :delete }, class: "inline-flex items-center cursor-pointer bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0"  %>
+    </div>
+  </header>
+
+  <div class="flex flex-row justify-between text-gray-400 bg-gray-900 body-font flex-1 w-full">
+    <div class="flex flex-col w-2/5 border-r-2 overflow-y-auto border-gray-100/10">
+      <%= render partial: "layouts/new_room_form" %>
+      <%= turbo_stream_from "rooms" %>
+      <div id="rooms">
+        <%= render @rooms %>
+      </div>
       <%= turbo_stream_from "users" %>
       <div id="users">
         <%= render @users %>
       </div>
     </div>
-    <h4> Rooms </h4>
-    <%= render partial: "layouts/new_room_form" %>
-    <div>
-      <%= turbo_stream_from "rooms" %>
-      <div id="rooms">
-        <%= render @rooms %>
-      </div>
+
+    <div class="w-full flex flex-col justify-between text-gray-400 bg-gray-900 body-font">
+      <% if @single_room %>
+        <div>
+          <%= turbo_stream_from @single_room %>
+          <h4 class="text-center py-2 text-xl bg-white"> 
+            <%= (@user&.username || @single_room.name).capitalize %>'s Room
+          </h4>
+        </div>
+        <div class="px-5 w-full max-h-full flex items-center justify-center flex-col">
+          <%= turbo_stream_from "messages" %>
+          <div class="flex flex-col mt-5 px-5 w-full flex-1" id="messages">
+            <%= render @messages %>
+          </div>
+          <%= render partial: 'layouts/new_message_form' %>
+        </div>
+      <% end %>
     </div>
   </div>
-  <div class="col-md-10 bg-dark text-light">
-    <% if @single_room %>
-      <%= turbo_stream_from @single_room %>
-      <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
-      <div id="messages">
-        <%= render @messages %>
-      </div>
-      <%= render partial: 'layouts/new_message_form'  %>
-    <% end %>
-  </div>
-</div>
+</section>
