@@ -3,7 +3,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:user_id]
-      @current_user  = User.find(session[:user_id])
+      @current_user = User.where(id: session[:user_id]).first
+      return log_out if !@current_user
+
+      @current_user
     end
   end
 

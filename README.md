@@ -1,24 +1,20 @@
-# README
+<h1 align="center">
+  <strong>ChatAPP 💬</strong>
+</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p align="center">
+  <p align="center">
+  <a href="./.github/preview.mp4" title="Preview">
+    <img src="./.github/preview.png" alt="Preview">
+  </a>
+</p>
 
-Things you may want to cover:
+## 💻 Project
 
-* Ruby version
+Project built based on the intention of studying the operation of turbo rails. Your goal is to build a simple user login system designed for real-time conversations. In public, group, or private user-to-user chats.
 
-* System dependencies
+<hr/>
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<p align="center">
+  Developed with ❤ by <a target="_blank" href="https://ernanej.github.io/my-linktree/">Ernane Ferreira</a>. 👋🏻
+</p>

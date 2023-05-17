@@ -21,6 +21,7 @@
       }
     </style>
 
+    <script src="https://kit.fontawesome.com/dfe4acf2bf.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -28,7 +29,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="text-gray-400 bg-gray-900 body-font">
+  <body class="text-gray-400 bg-gray-900 body-font overflow-hidden">
     <%= yield %>
   </body>
 </html>

@@ -1,8 +1,10 @@
 
 <%= form_with(model: [@single_room ,@message], remote: true, class: "w-full",
     data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |f| %>
-  <div class="py-5 flex items-center justify-center gap-3 w-full">
+  <div class="py-5 flex items-center justify-center gap-3 w-full px-3">
     <%= f.text_field :content, id: 'chat-text', placeholder: "type your message here..", class: "w-full bg-gray-800 py-2 outline-none px-4 rounded-xl", autocomplete: 'off' %>
-    <%= f.submit data: { disable_with: false }, class: "inline-flex items-center bg-gray-800 cursor-pointer border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0" %>
+    <%= f.button nil, data: { disable_with: false }, class: "inline-flex items-center bg-gray-800 cursor-pointer border-0 py-3 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0" do %>
+      <i class="fa-solid fa-paper-plane"></i>
+    <% end %>
   </div>
 <% end %>
