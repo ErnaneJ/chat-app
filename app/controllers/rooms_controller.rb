@@ -20,7 +20,6 @@ class RoomsController < ApplicationController
     @message = Message.new
   
     render "index"
-
   rescue
     redirect_to :root
   end

@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     @messages = @single_room.messages
 
     render "rooms/index"
-
   rescue
     redirect_to :root
   end
