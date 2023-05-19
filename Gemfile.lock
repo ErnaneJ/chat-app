@@ -90,6 +90,7 @@ GEM
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    hiredis (0.6.3)
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.6)
@@ -213,6 +214,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  hiredis (~> 0.6.3)
   importmap-rails
   jbuilder
   pg (~> 1.5)

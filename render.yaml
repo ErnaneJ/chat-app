@@ -4,6 +4,11 @@ databases:
     ipAllowList: []
 
 services:
+  - type: redis
+    name: redis
+    ipAllowList: []
+    plan: free
+    maxmemoryPolicy: noeviction
   - type: web
     name: rails
     plan: free
@@ -20,10 +25,5 @@ services:
       - key: REDIS_URL
         fromService:
           type: redis
-          name: redis
+          name: cache
           property: connectionString
-  - type: redis
-    name: redis
-    ipAllowList: []
-    plan: free
-    maxmemoryPolicy: noeviction

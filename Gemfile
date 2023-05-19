@@ -72,3 +72,5 @@ group :test do
 end
 
 gem "pg", "~> 1.5"
+
+gem "hiredis", "~> 0.6.3"
