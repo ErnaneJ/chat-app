@@ -1,7 +1,19 @@
+<% current_room = Room.where("name like '%private_#{user.id}_#{current_user.id}%' OR name like '%private_#{current_user.id}_#{user.id}%'").last %>
+
 <a href="/users/<%= user.id %>"
-  class="flex flex-row gap-4  py-4 px-2 justify-center items-center border-b-2 border-gray-100/10 hover:text-gray-400 hover:bg-gray-800"
+  class="flex flex-row gap-4  py-4 px-2 justify-center items-center border-b-2 border-gray-100/10 hover:text-gray-400 hover:bg-gray-800 <%= current_page?("/users/#{room&.id}") ? "text-gray-400 bg-gray-800" : '' %>"
 >
   <div class="w-full pl-3">
-    <i class="fa-regular fa-comment"></i><div class="text-lg font-semibold"><%= user.username.capitalize %></div>
+    <i class="fa-solid fa-comments"></i>
+    <div class="text-lg font-semibold">
+      <%= user.username.capitalize %>
+    </div>
+    <!--
+      <span class="italic opacity-[.5]">
+        <% if current_room.messages && current_room.messages.last %>
+          <%= current_room.messages.last.content %>
+        <% end %>
+      </span>
+    -->
   </div>
 </a>

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :current_user_is_authenticated?
+
   def show
     @user = User.find(params[:id])
     @current_user = current_user
@@ -11,6 +14,9 @@ class UsersController < ApplicationController
     @messages = @single_room.messages
 
     render "rooms/index"
+
+  rescue
+    redirect_to :root
   end
 
   private
@@ -18,5 +24,9 @@ class UsersController < ApplicationController
   def get_name(user1, user2)
     users = [user1, user2].sort
     "private_#{users[0].id}_#{users[1].id}"
+  end
+
+  def current_user_is_authenticated?
+    redirect_to '/signin' unless current_user
   end
 end

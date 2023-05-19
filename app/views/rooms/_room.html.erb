@@ -1,7 +1,17 @@
 <a href="/rooms/<%= room.id %>"
-  class="flex flex-row gap-4  py-4 px-2 justify-center items-center border-b-2 border-gray-100/10 hover:text-gray-400 hover:bg-gray-800"
+  class="flex flex-row gap-4  py-4 px-2 justify-center items-center border-b-2 border-gray-100/10 hover:text-gray-400 hover:bg-gray-800 <%= current_page?("/rooms/#{room&.id}") ? "text-gray-400 bg-gray-800" : '' %>"
 >
   <div class="w-full pl-3">
-    <i class="fa-regular fa-comment"></i><div class="text-lg font-semibold"><%= room.name.capitalize %></div>
+    <i class="fa-solid fa-users"></i>
+      </i><div class="text-lg font-semibold">
+        <%= room.name.capitalize %>
+      </div>
+    <!--
+      <span class="italic opacity-[.5]">
+        <% if room.messages && room.messages.last %>
+          <%= room.messages.last.content %>
+        <% end %>
+      </span>
+    -->
   </div>
 </a>

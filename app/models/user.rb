@@ -5,11 +5,17 @@ class User < ApplicationRecord
   after_create_commit { broadcast_append_to "users" }
 
   def self.find_or_create_by_username(username)
-    user = User.find_by(username)
+    user = User.where(username).first
     if user
       user
     else
       User.create(username)
     end
+  end
+
+  private
+
+  def current_user_is_authenticated?
+    redirect_to '/signin' unless current_user
   end
 end
