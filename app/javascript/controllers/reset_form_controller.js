@@ -8,6 +8,7 @@ export default class extends Controller {
 
   scrollToBottom() {
     const messagesContainer = document.getElementById('messages');
+    if(!messagesContainer) return;
     messagesContainer.scrollTo(0, messagesContainer.scrollHeight, { behavior: 'smooth' });
   }
 }
