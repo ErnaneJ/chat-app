@@ -17,10 +17,6 @@
         <div class="flex flex-col" id="rooms">
           <%= render @rooms, room: @single_room %>
         </div>
-        <%= turbo_stream_from "users" %>
-        <div class="flex flex-col" id="users">
-          <%= render @users, room: @single_room %>
-        </div>
       </div>
 
       <% if @single_room %>
