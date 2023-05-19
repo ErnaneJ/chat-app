@@ -25,5 +25,5 @@ services:
       - key: REDIS_URL
         fromService:
           type: redis
-          name: cache
+          name: redis
           property: connectionString
